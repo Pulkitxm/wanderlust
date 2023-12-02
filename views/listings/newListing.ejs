@@ -1,0 +1,220 @@
+<% layout('./layouts/Boilerplate') %>
+
+<% 
+    let optionsArr = [
+            {
+                img:"farms",
+                txt:"Farms",
+                class:"farms"
+            },
+            {
+                img:"omg!",
+                txt:"OMG!",
+                class:"omg"
+            },
+            {
+                img:"tiny-homes",
+                txt:"Tiny Homes",
+                class:"tinyhomes"
+            },
+            {
+                img:"surfing",
+                txt:"Surfing",
+                class:"surfing"
+            },
+            {
+                img:"amazing-pools",
+                txt:"Amazing pools",
+                class:"amazingpools"
+            },
+            {
+                img:"dammusi",
+                txt:"Dammusi",
+                class:"dammusi"
+            },
+            {
+                img:"yurts",
+                txt:"Yurts",
+                class:"yurts"
+            },
+            {
+                img:"cassas",
+                txt:"Casas particulares",
+                class:"cassas"
+            },
+            {
+                img:"windmills",
+                txt:"Windmills",
+                class:"windmills"
+            },
+            {
+                img:"dammusi",
+                txt:"Dammusi",
+                class:"dammusi"
+            },
+            {
+                img:"domes",
+                txt:"Domes",
+                class:"domes"
+            },
+            {
+                img:"desert",
+                txt:"Desert",
+                class:"desert"
+            },
+            {
+                img:"amazing",
+                txt:"Amazing views",
+                class:"amazing"
+            },
+            {
+                img:"cabins",
+                txt:"Cabins",
+                class:"cabins"
+            },
+            {
+                img:"luxe",
+                txt:"Luxe",
+                class:"luxe"
+            },
+            {
+                img:"kitchen",
+                txt:"Chef's kitchens",
+                class:"kitchen"
+            },
+            {
+                img:"caves",
+                txt:"Caves",
+                class:"caves"
+            },
+            {
+                img:"treehouse",
+                txt:"Treehouses",
+                class:"treehouse"
+            },
+            
+        ] 
+    %>
+
+<body>
+  <div class="container">
+    <h2>Add a new Listing</h2>
+    <form
+      action="/"
+      method="POST"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          name="title"
+          id="title"
+          value="Cozy Beachfront Cottage"
+          placeholder="Enter title"
+          required
+        />
+        <div class="invalid-feedback">Invalid Title!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <input
+          class="form-control"
+          type="text"
+          name="description"
+          value="Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach."
+          id="description"
+          placeholder="Enter description"
+          required
+        />
+        <div class="invalid-feedback">Invalid Description!</div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="image">Upload Image</label>
+          <input
+            class="form-control"
+            type="file"
+            name="imageFile"
+            id="image"
+            placeholder="Enter image"
+            required
+          />
+          <div class="invalid-feedback">Invalid Image!</div>
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="image">Cateogary</label>
+          <select class="form-select" aria-label="Default select example" name="cateogries">
+            <option value="null">Select an Option</option>
+            <% optionsArr.map((option,index)=>{%>
+            <option value="<%=option.class%>"><%=option.txt%></option>
+            <%})%>
+          </select>
+          <div class="invalid-feedback">Invalid Country!</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label" for="price">Price</label>
+          <input
+            class="form-control"
+            type="text"
+            name="price"
+            value="1500"
+            id="price"
+            placeholder="Enter price"
+            required
+          />
+          <div class="invalid-feedback">Invalid Price!</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label" for="location">Location</label>
+          <input
+            class="form-control"
+            type="text"
+            value="Malibu"
+            name="location"
+            id="location"
+            placeholder="Enter location"
+            required
+          />
+          <div class="invalid-feedback">Invalid Location!</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</body>
+<!-- 
+<body>
+    <h2>Add a new Listing</h2>
+    <form action="/listings" method="POST" >
+        <label class="form-label" for="title">title</label>
+        <input class="form-control" type="text" value="Modern Loft in Downtow" name="title" id="title" placeholder="Enter title" >
+        <br>
+        <label class="form-label" for="description">description</label>
+        <input class="form-control" type="text" value="Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!" name="description" id="description" placeholder="Enter description" >
+        <br>
+        <label class="form-label" for="image">image</label>
+        <input class="form-control" type="text" value="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" name="image" id="image" placeholder="Enter image" >
+        <br>
+        <label class="form-label" for="price">price</label>
+        <input class="form-control" type="text" value="1200" name="price" id="price" placeholder="Enter price" >
+        <br>
+        <label class="form-label" for="location">location</label>
+        <input class="form-control" type="text" value="New York City" name="location" id="location" placeholder="Enter location" >
+        <br>
+        <label class="form-label" for="country">country</label>
+        <input class="form-control" type="text" value="United States" name="country" id="country" placeholder="Enter country" >
+        <br>
+        <button class="btn btn-primary" >Add</button>
+    </form>
+</body> -->
